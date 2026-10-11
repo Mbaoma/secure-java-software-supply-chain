@@ -26,7 +26,7 @@ and supply chain security — beginner to intermediate difficulty, not an expert
 
 ## Success criteria
 
-- A Jakarta EE app (loan-calculator or wallet service) runs on Cloud Run when deployed
+- A SpringBoot app (loan-calculator or wallet service) runs on Cloud Run when deployed
   "the normal way," with no scanning or signing involved.
 - With vulnerability scanning turned on, the app's deliberately outdated dependency is
   flagged by Artifact Analysis, visibly and understandably.
@@ -38,7 +38,7 @@ and supply chain security — beginner to intermediate difficulty, not an expert
 ## Scope
 
 **In scope:**
-- One small Jakarta EE application, intentionally simple (loan calculator or wallet
+- One small SpringBoot application, intentionally simple (loan calculator or wallet
   service), running on Eclipse Temurin.
 - Cloud Build pipeline that builds the app and emits SLSA provenance.
 - Artifact Registry storage + Artifact Analysis vulnerability scanning.
@@ -58,11 +58,11 @@ and supply chain security — beginner to intermediate difficulty, not an expert
 
 ### Java Developer
 
-- Build the Jakarta EE application (loan-calculator or wallet service) — small enough to
+- Build the SpringBoot application (loan-calculator or wallet service) — small enough to
   explain in a few minutes, but with enough real logic that it feels like an actual app
   rather than a toy.
 - Select and pin the app's dependencies, keeping the dependency tree realistic (i.e.
-  representative of what a real Jakarta EE service would pull in).
+  representative of what a real SpringBoot service would pull in).
 - Deliberately introduce one outdated library with a known CVE, chosen so Artifact
   Analysis will flag it clearly and the finding is easy to explain to students.
 - Package the app for Eclipse Temurin and confirm it runs correctly as a standalone
@@ -95,7 +95,7 @@ These map directly to the three workshop stages — each should be independently
 demoable before moving to the next, since that's also the order students will experience
 it in:
 
-1. **Build and run.** Jakarta EE app complete, containerized on Eclipse Temurin, deployed
+1. **Build and run.** SpringBoot app complete, containerized on Eclipse Temurin, deployed
    to Cloud Run with no scanning or signing. Owner: Java Developer builds the app; Cloud
    Native Engineer stands up the baseline Cloud Run deployment.
 2. **Scan it.** Cloud Build + Artifact Registry + Artifact Analysis wired together; outdated
@@ -115,7 +115,7 @@ since the whole point is for students to watch it happen live.
 - **CVE churn:** the deliberately outdated library needs a CVE that Artifact Analysis will
   reliably catch; if the vulnerability database stops flagging it (e.g., it's fixed/delisted
   upstream), we need a process to swap in a new one.
-- **App realism vs. simplicity:** the Jakarta EE app needs to be realistic enough that the
+- **App realism vs. simplicity:** the SpringBoot app needs to be realistic enough that the
   vulnerability scanning stage feels meaningful, but simple enough not to distract from the
   pipeline concepts — this balance needs sign-off from both roles, not just the Java
   developer.
